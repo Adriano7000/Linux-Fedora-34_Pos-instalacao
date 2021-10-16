@@ -4,30 +4,30 @@
 # ------ Main Menu Function Definition -------
 # ============================================
 
-flatpakExec() {
+flatPak() {
 	echo "Hell0" # arguments are accessible through $1, $2,...
 
 }
 
-snapExec() {
+snap() {
 	echo "Hello snap" 
 
 }
 
-dnfExec() {
-	echo "Hell0 dnf" 
+dnf_install() {
+	echo "Hell0 dnf_install" 
 }
 
-repoExec() {
+repository() {
 	echo "Hell0 repo" 
 
 }
 
-appImageExec() {
+appImage() {
 	echo "Hell0 appimage"
 }
 
-wgetExec() {
+wGet() {
 	echo "Hell0 wget"
 
 }
@@ -44,7 +44,7 @@ EOF
 main() {
 
 	times=0
-	choices=( 'dnf' repositorio "flatpak" snap "app image" wget exit)
+	choices=( 'dnf_install' repositorio "flatpak" snap "app image" wget exit)
 	#rodar=true
 	#while [ $rodar == true ] ; do
 		head
@@ -52,22 +52,22 @@ main() {
 		select op in "${choices[@]}"
 		do
 			case $op in
-				"dnf") dnfExec
+				"dnf_install") dnf_install
 				   break;;
 
-				"repositorio") repoExec
+				"repositorio") repository
 				   break;;
 
-				flatpak) flatpakExec
+				flatpak) flatPak
 				   break;;
 
-				snap) snapExec
+				snap) snap
 				   break;;
 
-				"app image") appImageExec
+				"app image") appImage
 				   break;;
 
-				wget) wgetExec
+				wget) wGet
 				   break;;
 
 				exit) echo "GOODBYE"
