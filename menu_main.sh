@@ -5,8 +5,9 @@
 # ============================================
 
 flatPak() {
-	echo "Hell0" # arguments are accessible through $1, $2,...
-
+	clear
+	head "Instalação FLATPAK!"
+	bash flatpak.sh
 }
 
 snap() {
@@ -15,7 +16,7 @@ snap() {
 }
 
 dnf_install() {
-	echo "Hell0 dnf_install" 
+	bash /home/adrianodias/Documents/Pos_installation/Linux-Fedora-34_Pos-instalacao/dnf.sh
 }
 
 repository() {
@@ -32,11 +33,12 @@ wGet() {
 
 }
 
-#########################################################################################3
 head() {
+	titulo="Main Menu"
+	[[ "$#" != 0 ]] && { titulo="$1"; }
 	cat << EOF
  ============================================
- ------------------ Main Menu  --------------
+ 	 $titulo
  ============================================
 EOF
 }
@@ -44,7 +46,7 @@ EOF
 main() {
 
 	times=0
-	choices=( 'dnf_install' repositorio "flatpak" snap "app image" wget exit)
+	choices=( 'dnf install' repositorio "flatpak" snap "app image" wget exit)
 	#rodar=true
 	#while [ $rodar == true ] ; do
 		head
@@ -52,7 +54,7 @@ main() {
 		select op in "${choices[@]}"
 		do
 			case $op in
-				"dnf_install") dnf_install
+				"dnf install") dnf_install
 				   break;;
 
 				"repositorio") repository
@@ -89,9 +91,4 @@ main() {
 }
 
 main
-
-
-
-
-
 
